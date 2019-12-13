@@ -30,7 +30,7 @@ class AvailableCoders extends React.Component {
     const { user } = this.props
     if (user) {
       return (
-        <button onClick={(e) => {
+        <button className ="renderbtn" onClick={(e) => {
           console.log("the user id is", user.id)
           console.log("the coder id is ", id)
           

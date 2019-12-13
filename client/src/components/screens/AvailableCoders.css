@@ -37,6 +37,13 @@
    font-family: 'Righteous', cursive; 
    font-size: 18px;
 }
+.home:hover {
+    padding: 1%;
+    background-color: #00437f;
+    color: white;
+    transition: background-color 0.7s ease;
+    transition: padding 0.7s ease;
+   }
 .signout {
     font-family: 'Righteous', cursive; 
     text-decoration: none;
@@ -45,8 +52,16 @@
 button {
     border: 1px solid black;
 }
-}
 
+}
+.renderbtn {
+    font-size: 15px;
+    font-weight: bold;
+}
+.renderbtn:hover {
+    background-color:#00437f;
+    color: white;
+}
 .rendercode {
     display: flex;
     flex-wrap: wrap;
@@ -83,6 +98,13 @@ button {
    font-family: 'Righteous', cursive; 
    font-size: 18px;
 }
+.home:hover {
+    padding: 1%;
+    background-color: #00437f;
+    color: white;
+    transition: background-color 0.7s ease;
+    transition: padding 0.7s ease;
+   }
 .signout {
     font-family: 'Righteous', cursive; 
     text-decoration: none;

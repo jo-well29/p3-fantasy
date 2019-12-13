@@ -12,11 +12,25 @@
         font-size: 40px;
         color: #00437f
     }
-    .availablecoders {
+    .availablecoderslink{
         text-decoration: none;
         color: black;
         font-size: 18px;
     }
+    .availablecoderslink:hover {
+        padding: 1%;
+        background-color: #00437f;
+        color: white;
+        transition: background-color 0.7s ease;
+        transition: padding 0.7s ease;
+    }
+   .signout:hover {
+    padding: 1%;
+    background-color: #00437f;
+    color: white;
+    transition: background-color 0.7s ease;
+    transition: padding 0.7s ease;
+   }
     .teamName span {
         text-decoration: underline;
         color:#00437f
@@ -47,15 +61,20 @@
         background: url("../images/rosterlogo.png");
         background-repeat: no-repeat;
         background-size: 100% 100%;
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
     }
-    .teamName{
+    .teamName {
         display: flex;
         flex-direction: column;
-        margin-left: 10%;
+        margin-left: 5%;
         margin-top: 5%;
         font-weight: bold;
         font-family: 'Righteous', cursive;
         height: 35%; 
+       
+    }
+    .teamName p {
+        font-size: 16px
     }
 
     .coderList {
@@ -65,9 +84,6 @@
         height: 10vh;
         margin-bottom: 2%;
         box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-
-
-
     }
 
     .coderList img {
@@ -99,13 +115,55 @@
 .teamroster h1 {
     font-size: 40px
 }
-.availablecoders {
+.availablecoderslink {
     text-decoration: none;
     color: black;
 }
+.availablecoderslink:hover {
+    padding: 1%;
+    background-color: #00437f;
+    color: white;
+    transition: background-color 0.7s ease;
+    transition: padding 0.7s ease;
+}
+.signout:hover {
+    padding: 1%;
+    background-color: #00437f;
+    color: white;
+    transition: background-color 0.7s ease;
+    transition: padding 0.7s ease;
+   }
 .teamroster{
     font-family: 'Righteous', cursive;
 }
+.rosterrenderbtn{
+    appearance: none;
+    background-color: transparent;
+    border-radius: 0.6em;
+    cursor: pointer;
+    display: flex;
+    align-self: center;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1;
+    margin: 10px;
+    padding: 1.2em 2.8em;
+    text-decoration: none;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    border-color:#b82601;
+    color: #fff;
+    box-shadow: 0 0 40px 40px #b82601 inset, 0 0 0 0 #b82601;
+    transition: all 150ms ease-in-out;
+    position: relative;
+}
+.rosterrenderbtn:hover {
+    box-shadow: 0 0 10px 0 #b82601 inset, 0 0 10px 4px #b82601;
+    color: black;
+}
+
 hr {
     border-top: 2px solid black
 }
@@ -122,8 +180,8 @@ hr {
    
 }
 .teamlogo {
-    height: 50%;
-    width: 40%;
+    height: 70%;
+    width: 30%;
     background: url("../images/rosterlogo.png");
     background-repeat: no-repeat;
     background-size: 100% 100%;
@@ -133,17 +191,17 @@ hr {
     display: flex;
     flex-direction: column;
     margin-left: 10%;
-    margin-top: 5%;
     font-weight: bold;
     font-family: 'Righteous', cursive;
-    height: 35%; 
+    height: 35%;
+    font-size: 30px; 
 }
 
 .coderList {
     border: 2px solid brown;
     display: flex;
     justify-content: space-between;
-    height: 10vh;
+    height: 15vh;
     margin-bottom: 2%;
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 

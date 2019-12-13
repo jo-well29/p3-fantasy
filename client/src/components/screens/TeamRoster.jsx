@@ -21,7 +21,6 @@ class TeamRoster extends React.Component {
       let coders = response.data.userRoster[0].Coders;
       if (coders) {
         this.setState({ coders });
-        console.log(this.state.coders);
       } else {
         return null;
       }
@@ -34,16 +33,16 @@ class TeamRoster extends React.Component {
       id: 0
     };
     return (
-      <button
+      <button className= "rosterrenderbtn"
         onClick={e => {
           updateCoder(id, reset).then(() => {
             this.forceUpdate();
-            this.props.history.push('/buffer')
+            this.props.history.push("/buffer");
             this.props.history.push(`/`);
           });
         }}
       >
-        Remove from Roster
+        X
       </button>
     );
   };
@@ -72,38 +71,91 @@ class TeamRoster extends React.Component {
       </>
     );
   };
-
+  hasUx = () => {
+    let length = this.state.coders.length;
+    let ux = false;
+    for (let i = 0; i < length; i++) {
+      if (
+        this.state.coders[i].expertise === "UX/CSS" ||
+        this.state.coders[i].expertise === "UX/HTML"
+      ) {
+       ux = true;
+      }
+    }
+      if (!ux) {
+        return <p>Grab a Ux designer</p>;
+      }
+  };
+  hasFe = () => {
+    let length = this.state.coders.length;
+    let fe = false;
+    for (let i = 0; i < length; i++) {
+      if (
+        this.state.coders[i].expertise === "React" ||
+        this.state.coders[i].expertise === "CSS"
+      ) {
+       fe = true;
+      }
+    }
+    if (!fe) {
+      return <p>Grab a front end dev</p>;
+    }
+  };
+  hasBe = () => {
+    let length = this.state.coders.length;
+    let be = false;
+    for (let i = 0; i < length; i++) {
+      if (
+        this.state.coders[i].expertise === "SQL" ||
+        this.state.coders[i].expertise === "Express"
+      ) {
+       return be = true;
+      }
+    }
+    if (!be) {
+      return <p>Grab a back end dev</p>;
+    }
+  };
   render() {
+    if(!this.state.coders){
+      console.log(this.state.coders[0].expertise)
+
+    }
     return (
       <div className="teamroster-container">
         <Header />
         <div className="teamroster">
           <h1>TEAM ROSTER</h1>
           <div className="rosterlinks">
-            <NavLink className="home" to="/">
-              Home
-            </NavLink>
-            <NavLink className="availablecoders" to="/availablecoders">
+            <NavLink className="availablecoderslink" to="/availablecoders">
               Available Coders
             </NavLink>
-            <NavLink className="signout"to="/sign-out">Sign Out</NavLink>
+            <NavLink className="signout" to="/sign-out">
+              Sign Out
+            </NavLink>
           </div>
         </div>
-      <hr></hr>
+        <hr></hr>
         <div className="rosterlogo">
           <div className="teamlogo"></div>
           <div className="teamName">
-            <p><span>TEAM NAME:</span> {this.props.user.email}</p>
-            <p><span>TEAM OWNER:</span> {this.props.user.firstName}</p>
+            <p>
+              <span>TEAM NAME:</span> {this.props.user.email}
+            </p>
+            <p>
+              <span>TEAM OWNER:</span> {this.props.user.firstName}
+            </p>
           </div>
         </div>
         <div className="team-text">
+      {this.hasUx()}
+      {this.hasFe()}
+      {this.hasBe()}
+
           <h2>Your TEAM</h2>
         </div>
         <hr></hr>
-        <div>{
-          this.listCoders()}
-        </div>
+        <div>{this.listCoders()}</div>
       </div>
     );
   }

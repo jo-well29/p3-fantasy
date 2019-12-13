@@ -177,7 +177,7 @@ module.exports = {
         },
         {
           name: "Mick Roth",
-          expertise: "Fullstack",
+          expertise: "Fullstack Master",
           userId: null,
           img:"https://media.licdn.com/dms/image/C4D03AQE8tAaBY7Q3_A/profile-displayphoto-shrink_200_200/0?e=1581552000&v=beta&t=onC60_t31ztAYYd_iMItlJjp04b82yXqJV7FC7RXmFo",
           createdAt: new Date(),
@@ -188,6 +188,38 @@ module.exports = {
           expertise: "UX/CSS",
           userId: null,
           img:"https://media.licdn.com/dms/image/C4D03AQGOw00TkH01LQ/profile-displayphoto-shrink_200_200/0?e=1581552000&v=beta&t=IJ1KMQVUhvzfSuUJxpsZ9OLY5mL9EO_25j6mymNHdI0",
+          createdAt: new Date(),
+          updatedAt: new Date()
+        },
+        {
+          name: "Giusseppe Del Vecchio",
+          expertise: "HTML",
+          userId: null,
+          img:"https://media.licdn.com/dms/image/C4E03AQH70rtO8aVBtQ/profile-displayphoto-shrink_200_200/0?e=1581552000&v=beta&t=vta5nBzGvxEwP6Qz-7-KN3AoGpMLDQgHcfVQXiXaVbY",
+          createdAt: new Date(),
+          updatedAt: new Date()
+        },
+        {
+          name: "Bruno Galvao",
+          expertise: "Fullstack Master",
+          userId: null,
+          img:"https://media.licdn.com/dms/image/C4D03AQFVglCczkb8ag/profile-displayphoto-shrink_200_200/0?e=1581552000&v=beta&t=tjNHibzBJtqEZJl6J7LdZXaPwdQS3i7zlBoZzyQDk_s",
+          createdAt: new Date(),
+          updatedAt: new Date()
+        },
+        {
+          name: "Katelyn Miles",
+          expertise: "Fullstack Master",
+          userId: null,
+          img:"https://media.licdn.com/dms/image/C4D03AQH0-X6G024JeQ/profile-displayphoto-shrink_200_200/0?e=1581552000&v=beta&t=Tgk60QjKJBLEroFzUZtpNwPZvM4cRU5H4D9wzqWZot4",
+          createdAt: new Date(),
+          updatedAt: new Date()
+        },
+        {
+          name: "Andre Pato",
+          expertise: "Fullstack Master",
+          userId: null,
+          img:"https://media.licdn.com/dms/image/C4D03AQHO9A4Z2iJQYw/profile-displayphoto-shrink_200_200/0?e=1581552000&v=beta&t=ECZ4Xn86D2cYyYNb7_pNZr-ysrkW_x0ZuHh9iPA6XV0",
           createdAt: new Date(),
           updatedAt: new Date()
         }
