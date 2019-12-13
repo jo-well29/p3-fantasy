@@ -45,3 +45,12 @@ export const removeCoder = async (coderId) => {
     throw error;
   }
 }
+
+export const trainCoder = async(coderId, raise) => {
+  try{
+    const resp = api.put(`/raise/coders/${coderId}`, raise);
+    return resp.data;
+  }catch (error) {
+    throw error;
+  }
+}

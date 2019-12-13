@@ -84,6 +84,8 @@
         height: 10vh;
         margin-bottom: 2%;
         box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+        width: 100%;
+        overflow: scroll;
     }
 
     .coderList img {
@@ -120,6 +122,63 @@
     .yourname {
         color:#00437f
     }
+
+    .remove-coder {
+        appearance: none;
+        background-color: transparent;
+        border-radius: 0.6em;
+        cursor: pointer;
+        display: flex;
+        align-self: center;
+        font-size: 1rem;
+        font-weight: 400;
+        line-height: 1;
+        margin: 10px;
+        padding: 1.2em 2.8em;
+        text-decoration: none;
+        text-align: center;
+        text-transform: uppercase;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 700;
+        border-color:#b82601;
+        color: #fff;
+        box-shadow: 0 0 40px 40px #b82601 inset, 0 0 0 0 #b82601;
+        transition: all 150ms ease-in-out;
+        position: relative;
+    }
+    .remove-coder:hover {
+        box-shadow: 0 0 10px 0 #b82601 inset, 0 0 10px 4px #b82601;
+        color: black;
+    }
+
+    .raise-coder {
+        appearance: none;
+        background-color: transparent;
+        border-radius: 0.6em;
+        cursor: pointer;
+        display: flex;
+        align-self: center;
+        font-size: 1rem;
+        font-weight: 200;
+        line-height: 1;
+        margin: 10px;
+        padding: 1.2em 2.8em;
+        text-decoration: none;
+        text-align: center;
+        text-transform: uppercase;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 200;
+        border-color:#7EC87B;
+        color: #fff;
+        box-shadow: 0 0 40px 40px #7EC87B inset, 0 0 0 0 #7EC87B;
+        transition: all 150ms ease-in-out;
+        position: relative;
+        font-size: 10%;
+    }
+    .raise-coder:hover {
+        box-shadow: 0 0 10px 0 #7EC87B inset, 0 0 10px 4px #7EC87B;
+        color: black;
+    }
    
 }
 .UX {
@@ -140,12 +199,10 @@
 .yourname {
     color:#00437f
 }
-    .job-title {
-        border-right: 2px solid #2F4858;
-        font-size: 40%;
-        writing-model: vertical-rl
-
-    }
+.job-title {
+    border-right: 2px solid #2F4858;
+    font-size: 40%;
+}
 
 .teamroster-container {
     height: 100vh;
@@ -179,7 +236,7 @@
 .teamroster{
     font-family: 'Righteous', cursive;
 }
-.rosterrenderbtn{
+.remove-coder {
     appearance: none;
     background-color: transparent;
     border-radius: 0.6em;
@@ -202,7 +259,7 @@
     transition: all 150ms ease-in-out;
     position: relative;
 }
-.rosterrenderbtn:hover {
+.remove-coder:hover {
     box-shadow: 0 0 10px 0 #b82601 inset, 0 0 10px 4px #b82601;
     color: black;
 }
@@ -247,6 +304,8 @@ hr {
     height: 15vh;
     margin-bottom: 2%;
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    width: 100%;
+    overflow: scroll;
 
 }
 .coderList img {
@@ -273,8 +332,37 @@ hr {
 
 
 .job-title {
-    border-right: 2px solid #2F4858;
+    border-left: 2px solid #2F4858;
     font-size: 40%;
-    writing-mode: vertical-rl
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    text-align: center;
+}
 
+.raise-coder {
+    appearance: none;
+    background-color: transparent;
+    border-radius: 0.6em;
+    cursor: pointer;
+    display: flex;
+    align-self: center;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1;
+    margin: 10px;
+    padding: 1.2em 2.8em;
+    text-decoration: none;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    border-color:#48B186;
+    color: #fff;
+    box-shadow: 0 0 40px 40px #48B186 inset, 0 0 0 0 #48B186;
+    transition: all 150ms ease-in-out;
+    position: relative;
+}
+.raise-coder:hover {
+    box-shadow: 0 0 10px 0 #48B186 inset, 0 0 10px 4px #48B186;
+    color: black;
 }

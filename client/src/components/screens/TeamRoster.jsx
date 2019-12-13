@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 import "./TeamRoster.css";
 import Axios from "axios";
 import Header from "../shared/Header";
-import { updateCoder } from "../../services/coders";
+import { updateCoder, trainCoder } from "../../services/coders";
 
 class TeamRoster extends React.Component {
   constructor() {
@@ -28,12 +28,13 @@ class TeamRoster extends React.Component {
       console.error(error);
     }
   }
-  renderButton = id => {
+  removeCoder = id => {
     const reset = {
       id: 0
     };
     return (
-      <button className="rosterrenderbtn"
+      <button
+        className="remove-coder"
         onClick={e => {
           updateCoder(id, reset).then(() => {
             this.forceUpdate();
@@ -46,18 +47,46 @@ class TeamRoster extends React.Component {
       </button>
     );
   };
+
+  raiseCoder = (id, efficency, salary) => {
+    const raise = {
+      efficency: parseFloat(efficency) + .05,
+      salary: parseInt(salary) + 5000
+    }
+    return (
+    <button
+        className="raise-coder"
+        onClick={e => {
+          trainCoder(id, raise).then(() => {
+            this.props.history.push("/buffer");
+            this.props.history.push(`/`);
+          });
+        }}
+      >
+        Train Team Member
+      </button>
+    )
+  }
+
   renderCoders = () => {
     if (this.state.coders.length) {
       return this.state.coders.map(coder => {
         return (
           <div className="coderList" key={coder.id}>
             <div className="job-title">
-              {(coder.expertise === "UX/CSS" || coder.expertise === "UX/HTML") ? <h1>Design</h1> : (coder.expertise === "React" || coder.expertise === "CSS") ? <h1>Front End</h1> : <h1>Back End</h1>}
+              {coder.expertise === "UX/CSS" || coder.expertise === "UX/HTML" ? (
+                <h1>Design</h1>
+              ) : coder.expertise === "React" || coder.expertise === "CSS" ? (
+                <h1>Front End</h1>
+              ) : (
+                <h1>Back End</h1>
+              )}
             </div>
             <img src={coder.img} alt="profile picture" />
             <h4>{coder.name}</h4>
             <h5>{coder.expertise}</h5>
-            {this.renderButton(coder.id)}
+            {this.raiseCoder(coder.id, coder.efficency, coder.salary)}
+            {this.removeCoder(coder.id)}
           </div>
         );
       });
@@ -85,10 +114,9 @@ class TeamRoster extends React.Component {
         ux = true;
       }
     }
-      if (!ux) {
-        return <p className="UX">Grab a UX designer!</p>;
-     
-      }
+    if (!ux) {
+      return <p className="UX">Grab a UX designer!</p>;
+    }
     if (!ux) {
       return <p>Grab a Ux designer</p>;
     }
@@ -118,18 +146,35 @@ class TeamRoster extends React.Component {
         this.state.coders[i].expertise === "Python" ||
         this.state.coders[i].expertise === "Javascript"
       ) {
-        return be = true;
+        return (be = true);
       }
     }
     if (!be) {
       return <p className="back">Grab a back end developer!</p>;
     }
   };
-  render() {
-    if (!this.state.coders) {
-      console.log(this.state.coders[0].expertise)
 
+  numberWithCommas = x => {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  };
+  totalExpenses = () => {
+    let salaries = [];
+    if (this.state.coders) {
+      this.state.coders.map(coder => {
+        salaries.push(coder.salary);
+      });
     }
+    let expense = 0;
+    if (salaries) {
+      for (let i = 0; i < salaries.length; i++) {
+        expense += parseInt(salaries[i]);
+      }
+    }
+
+  return <h1> R&D: ${this.numberWithCommas(expense)}</h1>;
+  };
+
+  render() {
     return (
       <div className="teamroster-container">
         <Header />
@@ -149,14 +194,15 @@ class TeamRoster extends React.Component {
           <div className="teamlogo"></div>
           <div className="teamName">
             <p>
-              <span>TEAM NAME:</span> {this.props.user.email}
+              <span>PRODUCT:</span> {this.props.user.product}
             </p>
             <p>
-              <span>TEAM OWNER:</span> {this.props.user.firstName}
+              <span>PROJECT MANAGER:</span> {this.props.user.name}
             </p>
           </div>
         </div>
         <div className="team-text">
+          {this.totalExpenses()}
           {this.hasUx()}
           {this.hasFe()}
           {this.hasBe()}

@@ -1,6 +1,9 @@
 import React from "react";
 import { signInUser } from "../../services/auth";
 import "./SignIn.css";
+import {NavLink} from 'react-router-dom'
+import Header from '../shared/Header'
+
 
 
 class SignIn extends React.Component {
@@ -59,6 +62,14 @@ class SignIn extends React.Component {
     const { email, password } = this.state;
 
     return (
+      <div className="signUp-page" >
+      <Header />
+        <div className= "navDiv">
+       <NavLink className="home" to="/">
+              Home
+            </NavLink>
+      <NavLink className="signUp" to='/sign-up'>Sign Up</NavLink>
+      </div>
       <div className="signin-container">
         <div className="signin-form">
           <h3>Sign In</h3>
@@ -86,6 +97,7 @@ class SignIn extends React.Component {
             {this.renderError()}
           </form>
         </div>
+      </div>
       </div>
     );
   }

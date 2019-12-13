@@ -7,11 +7,11 @@ const signUp = async (req, res) => {
   try {
     // console.log(req.connection)
     console.log(req.body);
-    const { firstName, lastName, email, password } = req.body;
+    const { name, product, email, password } = req.body;
     const password_digest = await bcrypt.hash(password, SALT_ROUNDS);
     const user = await User.create({
-      firstName,
-      lastName,
+      name,
+      product,
       email,
       password_digest
     });
@@ -85,7 +85,7 @@ const getRosterFromUser = async (req, res) => {
       if (coder) {
         return res.status(200).json({ coder })
       }
-      return res.status(404).send('Item with the specified ID does not exists')
+      return res.status(404).send('Coder with the specified ID does not exists')
     } catch (error) {
       return res.status(500).send(error.message)
     }
@@ -104,7 +104,7 @@ const getRosterFromUser = async (req, res) => {
       if (userRoster) {
         return res.status(200).json({ userRoster })
       }
-      return res.status(404).send('Item with the specified ID does not exists')
+      return res.status(404).send('Coder with the specified ID does not exists')
     }catch(error){
       return res.status(500).send(error.message)
     }
@@ -129,7 +129,33 @@ const getRosterFromUser = async (req, res) => {
       if (coder) {
         return res.status(200).json({ coder })
       }
-      return res.status(404).send('Item with the specified ID does not exists')
+      return res.status(404).send('Coder with the specified ID does not exists')
+      
+    }catch(error){
+      return res.status(500).send(error.message)
+    }
+  }
+  const trainCoder = async (req,res) => {
+    console.log("update feature")
+    try {
+      console.log(req.params)
+      const coder = await Coder.update(
+        {
+          efficency: req.body.efficency,
+          salary: req.body.salary
+        },
+        {
+          
+        where: {
+          id: req.params.id
+        }
+      }
+      )
+
+      if (coder) {
+        return res.status(200).json({ coder })
+      }
+      return res.status(404).send('Coder with the specified ID does not exists')
       
     }catch(error){
       return res.status(500).send(error.message)
@@ -143,7 +169,8 @@ module.exports = {
   getRosterFromUser,
   getCoderById,
   getAllCodersByUserId,
-  updateRoster
+  updateRoster,
+  trainCoder
 
 };
 

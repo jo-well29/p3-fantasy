@@ -1,7 +1,8 @@
 import React from 'react'
 import { signUp, signInUser } from '../../services/auth'
 import './SignUp.css'
-
+import {NavLink} from 'react-router-dom'
+import Header from '../shared/Header'
 
 class SignUp extends React.Component {
     constructor() {
@@ -26,22 +27,23 @@ class SignUp extends React.Component {
     onSignup = event => {
         event.preventDefault()
         const { history, setUser } = this.props
-        
-        signUp(this.state).then(() => signInUser(this.state)).then(res => {setUser(res.user)
-            
+
+        signUp(this.state).then(() => signInUser(this.state)).then(res => {
+            setUser(res.user)
+
             history.push('/')
         })
             .catch(error => {
                 console.error(error)
                 this.setState({
-                    firstName: '',
-                    lastName: '',
+                    name: '',
+                    product: '',
                     email: '',
                     password: '',
                     isError: true,
                     errorMsg: 'DETAILS INVALID'
                 })
-            }) 
+            })
     }
 
     renderError() {
@@ -57,58 +59,67 @@ class SignUp extends React.Component {
             return <button className="signup" type="submit">Sign Up</button>
     }
     render() {
-        const { firstName, lastName, email, password } = this.state
+        const { name, product, email, password } = this.state
         return (
-            <div className="signup-container">  
-                <div className="signup-form">
-                    <h3>Sign Up</h3>
-                    <div className="input-form">
-                    <form onSubmit={this.onSignup}>
-                        <label>First Name </label>
-                        <input
-                            className="form-styling"
-                            required
-                            type="text"
-                            name="firstName"
-                            value={firstName}
-                            placeholder="First Name"
-                            onChange={this.handleChange}
-                        />
+            <div className="signupDiv">
+            <Header />
+                <div className="signup-nav">
+                    <NavLink className="home" to="/">
+                        Home
+            </NavLink>
+                    <NavLink className="signIn" to='/sign-in'>Sign In</NavLink>
+                </div>
+                <div className="signup-container">
+                    <div className="signup-form">
+                        <h3>Sign Up</h3>
+                        <div className="input-form">
+                            <form onSubmit={this.onSignup}>
+                                <label>Name </label>
+                                <input
+                                    className="form-styling"
+                                    required
+                                    type="text"
+                                    name="name"
+                                    value={name}
+                                    placeholder="Full Name"
+                                    onChange={this.handleChange}
+                                />
 
-                        <label>Last Name </label>
-                        <input
-                            className="form-styling"
-                            required
-                            type="text"
-                            name="lastName"
-                            value={lastName}
-                            placeholder="Last Name"
-                            onChange={this.handleChange}
-                        />
+                                <label>Product Name</label>
+                                <input
+                                    className="form-styling"
+                                    required
+                                    type="text"
+                                    name="product"
+                                    value={product}
+                                    placeholder="Product Name"
+                                    onChange={this.handleChange}
+                                />
 
-                        <label>Email </label>
-                        <input
-                            className="form-styling"
-                            required
-                            type="text"
-                            name="email"
-                            value={email}
-                            placeholder="Enter Your Email"
-                            onChange={this.handleChange}
-                        />
+                                <label>Email </label>
+                                <input
+                                    className="form-styling"
+                                    required
+                                    type="text"
+                                    name="email"
+                                    value={email}
+                                    placeholder="Enter Your Email"
+                                    onChange={this.handleChange}
+                                />
 
-                        <label>Password</label>
-                        <input
-                            className="form-styling"
-                            required
-                            type="password"
-                            name="password"
-                            value={password}
-                            placeholder="Enter a Password"
-                            onChange={this.handleChange}
-                        />
-                        {this.renderError()}
-                    </form>
+                                <label>Password</label>
+                                <input
+                                    className="form-styling"
+                                    required
+                                    type="password"
+                                    name="password"
+                                    value={password}
+                                    placeholder="Enter a Password"
+                                    onChange={this.handleChange}
+                                />
+                                {this.renderError()}
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>

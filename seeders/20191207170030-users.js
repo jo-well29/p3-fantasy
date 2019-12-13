@@ -13,27 +13,13 @@ module.exports = {
       }], {});
     */
    return queryInterface.bulkInsert('Users', [{
-     firstName:'Andrew',
-     lastName: 'Chang',
-     email: 'ac@ga.com',
-     password_digest: 'pass',
+     name:'Andrew, Hadeeqa, Jowel',
+     product: 'Fantasy Coders',
+     email: 'Owls@ga.com',
+     password_digest: '',
      createdAt: new Date(),
      updatedAt: new Date()
-   },
-   {
-    firstName:'Hadeeqa',
-    lastName: 'Saman',
-    email: 'hs@ga.com',
-    password_digest: 'pass',
-    createdAt: new Date(),
-    updatedAt: new Date()
-  },{
-    firstName:'Jowel',
-    lastName: 'Rosario',
-    email: 'jr@ga.com',
-    password_digest: 'pass', createdAt: new Date(),
-    updatedAt: new Date()
-  }] ,{})
+   }] ,{})
   },
 
   down: (queryInterface, Sequelize) => {
