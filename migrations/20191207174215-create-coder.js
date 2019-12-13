@@ -18,7 +18,11 @@ module.exports = {
         type: Sequelize.STRING
       },
       userId: {
+<<<<<<< HEAD
+        type: Sequelize.INTEGER,
+=======
         type: Sequelize.INTEGER
+>>>>>>> 55e8496e974a100f44a8ae360d0da4a5d96ec956
       },
       createdAt: {
         allowNull: false,

@@ -78,9 +78,9 @@
     }
 
     .coderList {
-        border: 2px solid brown;
+        border: 2px solid #00437f;
         display: flex;
-        justify-content: space-between;
+        justify-content: space-evenly;
         height: 10vh;
         margin-bottom: 2%;
         box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
@@ -102,7 +102,50 @@
         margin: auto;
         padding: auto;
     }
+    .UX {
+        border: 2px solid #00437f;
+        font-size: 25px;
+        font-weight: bold; 
+    }
+    .front {
+        border: 2px solid #00437f;
+        font-size: 25px;
+        font-weight: bold; 
+    }
+    .back {
+        border: 2px solid #00437f;
+        font-size: 25px;
+        font-weight: bold; 
+    }
+    .yourname {
+        color:#00437f
+    }
+   
 }
+.UX {
+    border: 2px solid #00437f;
+    font-size: 25px;
+    font-weight: bold; 
+}
+.front {
+    border: 2px solid #00437f;
+    font-size: 25px;
+    font-weight: bold; 
+}
+.back {
+    border: 2px solid #00437f;
+    font-size: 25px;
+    font-weight: bold; 
+}
+.yourname {
+    color:#00437f
+}
+    .job-title {
+        border-right: 2px solid #2F4858;
+        font-size: 40%;
+        writing-model: vertical-rl
+
+    }
 
 .teamroster-container {
     height: 100vh;
@@ -198,7 +241,7 @@ hr {
 }
 
 .coderList {
-    border: 2px solid brown;
+    border: 2px solid #00437f;
     display: flex;
     justify-content: space-between;
     height: 15vh;
@@ -206,8 +249,6 @@ hr {
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 
 }
-
-
 .coderList img {
     height: 100%;
 }
@@ -228,4 +269,12 @@ hr {
 .teamName span {
     text-decoration: underline;
     color:#00437f
+}
+
+
+.job-title {
+    border-right: 2px solid #2F4858;
+    font-size: 40%;
+    writing-mode: vertical-rl
+
 }
