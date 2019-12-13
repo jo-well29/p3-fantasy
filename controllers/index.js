@@ -78,10 +78,10 @@ const getRosterFromUser = async (req, res) => {
       const { id} = req.params
       const coder = await Coder.findOne({
         where: {
-          rosterId: id
+          id: id
         }
       })
-      
+      console.log(coder)
       if (coder) {
         return res.status(200).json({ coder })
       }

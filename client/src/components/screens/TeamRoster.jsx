@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 import "./TeamRoster.css";
 import Axios from "axios";
 import Header from "../shared/Header";
-import { updateCoder, trainCoder } from "../../services/coders";
+import { updateCoder, trainCoder, getCoderByUserId } from "../../services/coders";
 
 class TeamRoster extends React.Component {
   constructor() {
@@ -50,9 +50,10 @@ class TeamRoster extends React.Component {
 
   raiseCoder = (id, efficency, salary) => {
     const raise = {
-      efficency: parseFloat(efficency) + .05,
+      efficency: parseFloat(efficency) + 0.05,
       salary: parseInt(salary) + 5000
-    }
+    };
+    getCoderByUserId(id)
     return (
     <button
         className="raise-coder"
@@ -65,8 +66,8 @@ class TeamRoster extends React.Component {
       >
         Train Team Member
       </button>
-    )
-  }
+    );
+  };
 
   renderCoders = () => {
     if (this.state.coders.length) {
@@ -171,7 +172,44 @@ class TeamRoster extends React.Component {
       }
     }
 
-  return <h1> R&D: ${this.numberWithCommas(expense)}</h1>;
+    return <h1> R&D: ${this.numberWithCommas(expense)}</h1>;
+  };
+
+  efficiencyScore = () => {
+    let productivities = [];
+    let teamEff = 0;
+    if (this.state.coders) {
+      this.state.coders.map(coder => {
+        productivities.push(coder.efficency);
+      });
+
+      if(productivities.length > 0) {
+        for(let i = 0; i < productivities.length; i++){
+          teamEff += parseFloat(productivities[i])
+        }
+        teamEff /= productivities.length
+        teamEff = teamEff.toFixed(2)
+        teamEff *= 100
+      }
+    }
+    let fill = teamEff
+    let strokeColor = (fill >= 100)? "#7EC87B" : "#B82601";
+    console.log(fill)
+  return (
+    <React.Fragment>
+    <svg viewBox="0 0 36 36">
+  <path
+    d="M18 2.0845
+      a 15.9155 15.9155 0 0 1 0 31.831
+      a 15.9155 15.9155 0 0 1 0 -31.831"
+    fill="none"
+    stroke={`${strokeColor}`}
+    strokeWidth="1"
+    strokeDasharray={`${fill}, 100`}
+  />
+</svg>
+  <h2>Average Team Efficency: {teamEff}%</h2>
+  </React.Fragment>)
   };
 
   render() {
@@ -203,6 +241,7 @@ class TeamRoster extends React.Component {
         </div>
         <div className="team-text">
           {this.totalExpenses()}
+          {this.efficiencyScore()}
           {this.hasUx()}
           {this.hasFe()}
           {this.hasBe()}
