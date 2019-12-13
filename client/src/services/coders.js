@@ -3,7 +3,7 @@ import api from "./apiConfig";
 export const getCoderByUserId = async (id) => {
   try {
     const resp = await api.get(`/coders/${id}`);
-    return resp.data.import;
+    return resp.data;
   } catch (error) {
     throw error;
   }
