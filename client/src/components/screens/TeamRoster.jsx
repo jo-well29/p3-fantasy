@@ -3,7 +3,8 @@ import { NavLink } from "react-router-dom";
 import "./TeamRoster.css";
 import Axios from "axios";
 import Header from "../shared/Header";
-import { updateCoder, trainCoder, getCoderByUserId } from "../../services/coders";
+import { updateCoder, trainCoder, getCoderByUserId, completedProject } from "../../services/coders";
+import {signOut} from '../../services/auth'
 
 class TeamRoster extends React.Component {
   constructor() {
@@ -194,7 +195,6 @@ class TeamRoster extends React.Component {
     }
     let fill = teamEff
     let strokeColor = (fill >= 100)? "#7EC87B" : "#B82601";
-    console.log(fill)
   return (
     <React.Fragment>
     <svg viewBox="0 0 36 36">
@@ -211,6 +211,22 @@ class TeamRoster extends React.Component {
   <h2>Average Team Efficency: {teamEff}%</h2>
   </React.Fragment>)
   };
+
+  closeProject = () => {
+    return (
+      <button
+          className="raise-coder"
+          onClick={e => {
+            completedProject(this.props.user.id).then(() => {
+              signOut()
+              this.props.history.push("/Sign-up");
+            });
+          }}
+        >
+          Close Project
+        </button>
+      );
+  }
 
   render() {
     return (
@@ -234,6 +250,7 @@ class TeamRoster extends React.Component {
             <p>
               <span>PRODUCT:</span> {this.props.user.product}
             </p>
+            {this.closeProject()}
             <p>
               <span>PROJECT MANAGER:</span> {this.props.user.name}
             </p>

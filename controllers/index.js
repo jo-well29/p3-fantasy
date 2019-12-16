@@ -162,6 +162,21 @@ const getRosterFromUser = async (req, res) => {
     }
   }
 
+  const deleteAccount = async (req, res) => {
+    try {
+      const { id } = req.params
+      const deleted = await User.destroy({
+        where: { id: id }
+      })
+      if (deleted) {
+        return res.status(202).send("Project Completed")
+      }
+      throw new Error('There was an error deleting your account')
+    } catch (error) {
+      return res.status(500).send(error.message)
+    }
+  }
+
 module.exports = {
   signUp,
   signIn,
@@ -170,7 +185,8 @@ module.exports = {
   getCoderById,
   getAllCodersByUserId,
   updateRoster,
-  trainCoder
+  trainCoder,
+  deleteAccount
 
 };
 

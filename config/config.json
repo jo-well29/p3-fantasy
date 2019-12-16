@@ -1,17 +1,17 @@
 {
   "development": {
     "database": "project-three_development",
-    "host": "127.0.0.1",
     "dialect": "postgres"
   },
   "test": {
     "database": "project-three_test",
-    "host": "127.0.0.1",
     "dialect": "postgres"
   },
   "production": {
-    "database": "project-three_production",
-    "host": "127.0.0.1",
-    "dialect": "postgres"
+    "database": "DATABASE_URL",
+    "dialect": "postgres",
+    "dialectOptions": {
+      "ssl": true
+    }
   }
 }

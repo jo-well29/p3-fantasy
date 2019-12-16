@@ -54,3 +54,12 @@ export const trainCoder = async(coderId, raise) => {
     throw error;
   }
 }
+
+export const completedProject = async(id) => {
+  try{
+    const resp = api.delete(`/users/${id}`)
+    return resp.data
+  }catch(error){
+    throw error
+  }
+}
