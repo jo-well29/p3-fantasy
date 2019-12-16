@@ -3,7 +3,7 @@ import { signOut } from '../../services/auth'
 
 class SignOut extends Component {
   async componentDidMount() {
-    await localStorage.clear()
+    await signOut()
     this.props.history.push('/sign-in')
   }
 

@@ -284,6 +284,16 @@ module.exports = {
           img:"https://media.licdn.com/dms/image/C4E03AQGhfAqMM9pPzw/profile-displayphoto-shrink_200_200/0?e=1581552000&v=beta&t=Yhcf1QnxEIjVzauMmGsvxMQSKteSs7jcz_Lp8kdkwWo",
           createdAt: new Date(),
           updatedAt: new Date()
+        },
+        {
+          name: "Katie Luo",
+          expertise: "UX/HTML",
+          salary: Math.random()*150000,
+          efficency: .7,
+          userId: null,
+          img:"https://media.licdn.com/dms/image/C4D03AQHXhrN0XGG95g/profile-displayphoto-shrink_200_200/0?e=1581552000&v=beta&t=R9o_YfKKgMuhkwPKwTBfup7LNUDcqdljf00AWfVMxg0",
+          createdAt: new Date(),
+          updatedAt: new Date()
         }
       ],
       {}

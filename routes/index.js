@@ -14,6 +14,8 @@ router.get('/users/:id/coders', controllers.getAllCodersByUserId)
 router.put('/users/:id/coders/:coder_id', controllers.updateRoster)
 router.put('/raise/coders/:id', controllers.trainCoder)
 
+router.delete('/users/:id', controllers.deleteAccount)
+
 
 
 
